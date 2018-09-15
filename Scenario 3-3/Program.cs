@@ -15,6 +15,8 @@ namespace Scenario_3_3
 
             Stack<int> s3 = new Stack<int>();
 
+            // Examine each stack to determine the number to push into s3
+            // This number is the larger of s1 and s2's first element
             while(s1.Count > 0 && s2.Count > 0)
             {
                 int n1 = s1.Peek();
@@ -30,6 +32,8 @@ namespace Scenario_3_3
                 }
             }
 
+            // Either s1 or s2 will still have some remaining elements
+            // Push these remaining stack elements to s3
             while(s1.Count > 0)
             {
                 s3.Push(s1.Pop());
@@ -40,6 +44,8 @@ namespace Scenario_3_3
                 s3.Push(s2.Pop());
             }
 
+            // s3 will be sorted in asc order.
+            // Print it out by popping one element at a time
             while(s3.Count > 0)
             {
                 Console.Write("{0} ", s3.Pop());
@@ -47,6 +53,7 @@ namespace Scenario_3_3
             Console.WriteLine(); //newline
         }
 
+        // helper function to display stack (non-destructively)
         static void printStack(Stack<int> s)
         {
             foreach(int i in s)
@@ -55,7 +62,7 @@ namespace Scenario_3_3
             }
             Console.WriteLine(); //newline
         }
-
+        
         static Stack<int> generateSortedStack(Random r, int n)
         {
             Stack<int> s = new Stack<int>();
